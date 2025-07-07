@@ -3,13 +3,16 @@ package org.example.Locks;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class ReentrantLockProducerConsumer {
 
     public static void main(String[] args) {
 
         ReentrantLockProducerConsumer obj = new ReentrantLockProducerConsumer();
+        ReadWriteLock readWriteLock = new ReentrantReadWriteLock();
 
         new Thread(() -> {
             while(true){
