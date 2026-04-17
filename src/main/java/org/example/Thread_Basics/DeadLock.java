@@ -16,11 +16,13 @@ public class DeadLock {
             throw new RuntimeException(e);
         }
         lock2.lock();
+        System.out.println("lock2 acquired - user 1");
     }
 
     public void user2() {
         lock2.lock();
         System.out.println("lock2 acquired - user 2");
+        lock1.lock();
         if (lock1.tryLock()) {
             lock2.unlock();
         }else{
